@@ -1,0 +1,9 @@
+GovHack 2023 Challenges Notes
+-----------------------------
+
+Chosen challenge:
+https://hackerspace.govhack.org/challenges/analysing_recycling_trends_over_the_last_20_years_to_predict_future_recycling_behaviour
+
+Analysing recycling trends over the last 20 years to predict future recycling behaviour
+Jurisdiction: Victoria
+Conduct analysis to understand and identify trends in recycling practices over the past 20 years. The objective of the challenge is to gain insights from recycling rates, material compositions, geographic variations and other factors influencing recycling behaviour. 
