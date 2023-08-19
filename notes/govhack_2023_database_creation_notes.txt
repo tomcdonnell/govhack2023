@@ -97,4 +97,29 @@ Command to add missing right double-quotes:
 :%s/",\([^"]\)/","\1/gc
 
 
+GovHack 2021 Project is Flatpack database 27.
+
+
+CREATE TABLE COMMANDS
+---------------------
+
+CREATE TABLE national_waste_database_2022 (
+   `year`
+   `jurisdiction`
+   `category`
+   `type`
+   `classification`
+   `total_type`
+   `stream`
+   `management`
+   `fate`
+   `tonnes`
+   `core_or_non-core`
+   `substream`
+   `cat_order`
+   `cat_no.`
+   `type_order`
+   `type_no`
+);
+
 
