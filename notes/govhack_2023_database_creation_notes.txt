@@ -148,4 +148,11 @@ ALTER TABLE waste_projection_model_actuals_20230721 ADD COLUMN recycled_double  
 ALTER TABLE waste_projection_model_actuals_20230721 ADD COLUMN waste_to_energy_double    DOUBLE NOT NULL AFTER waste_to_energy;
 ALTER TABLE waste_projection_model_actuals_20230721 ADD COLUMN export_interstate_double  DOUBLE NOT NULL AFTER export_interstate;
 ALTER TABLE waste_projection_model_actuals_20230721 ADD COLUMN export_intnational_double DOUBLE NOT NULL AFTER export_international;
-UPDATE waste_projection_model_actuals_20230721 SET recycled_double=CAST(recycled AS DOUBLE);
+ALTER TABLE waste_projection_model_actuals_20230721 ADD COLUMN disposal_double           DOUBLE NOT NULL AFTER disposal;
+ALTER TABLE waste_projection_model_actuals_20230721 ADD COLUMN recovery_rate_double      DOUBLE NOT NULL AFTER recovery_rate;
+UPDATE waste_projection_model_actuals_20230721 SET recycled_double            =CAST(recycled             AS DOUBLE);
+UPDATE waste_projection_model_actuals_20230721 SET waste_to_energy_double     =CAST(waste_to_energy      AS DOUBLE);
+UPDATE waste_projection_model_actuals_20230721 SET export_interstate_double   =CAST(export_interstate    AS DOUBLE);
+UPDATE waste_projection_model_actuals_20230721 SET export_international_double=CAST(export_international AS DOUBLE);
+UPDATE waste_projection_model_actuals_20230721 SET disposal_double            =CAST(disposal             AS DOUBLE);
+UPDATE waste_projection_model_actuals_20230721 SET recovery_rate_double       =CAST(recovery_rate        AS DOUBLE);
