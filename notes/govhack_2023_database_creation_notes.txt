@@ -104,22 +104,48 @@ CREATE TABLE COMMANDS
 ---------------------
 
 CREATE TABLE national_waste_database_2022 (
-   `year`
-   `jurisdiction`
-   `category`
-   `type`
-   `classification`
-   `total_type`
-   `stream`
-   `management`
-   `fate`
-   `tonnes`
-   `core_or_non-core`
-   `substream`
-   `cat_order`
-   `cat_no.`
-   `type_order`
-   `type_no`
-);
+   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+   `year` varchar(16) NOT NULL,
+   `jurisdiction` varchar (16) NOT NULL,
+   `category` varchar(256) NOT NULL,
+   `type` varchar(512) NOT NULL,
+   `classification` varchar(32) NOT NULL,
+   `total_type` varchar(128) NOT NULL,
+   `stream` varchar(32) NOT NULL,
+   `management` varchar(128) NOT NULL,
+   `fate` varchar(64) NOT NULL,
+   `tonnes` int NOT NULL,
+   `core_or_non-core` varchar(64) NOT NULL,
+   `substream` varchar(128) NOT NULL,
+   `cat_order` varchar(128) NOT NULL,
+   `cat_no` varchar(32) NOT NULL,
+   `type_order` varchar(256) NOT NULL,
+   `type_no` varchar(32) NOT NULL,
+   PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 
+CREATE TABLE waste_projection_model_actuals_20230721 (
+   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+   `financial_year` varchar(64) NOT NULL,
+   `wpm_material_type` varchar(64) NOT NULL,
+   `wpm_material_name` varchar(64) NOT NULL,
+   `waste_stream` varchar(64) NOT NULL,
+   `recycled` varchar(64) NOT NULL,
+   `waste_to_energy` varchar(64) NOT NULL,
+   `export_interstate` varchar(64) NOT NULL,
+   `export_international` varchar(64) NOT NULL,
+   `disposal` varchar(64) NOT NULL,
+   `recovery_rate` varchar(64) NOT NULL,
+   PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+
+ALTER TABLE COMMANDS
+--------------------
+
+ALTER TABLE waste_projection_model_actuals_20230721 ADD COLUMN recycled_double           DOUBLE NOT NULL AFTER recycled;
+ALTER TABLE waste_projection_model_actuals_20230721 ADD COLUMN waste_to_energy_double    DOUBLE NOT NULL AFTER waste_to_energy;
+ALTER TABLE waste_projection_model_actuals_20230721 ADD COLUMN export_interstate_double  DOUBLE NOT NULL AFTER export_interstate;
+ALTER TABLE waste_projection_model_actuals_20230721 ADD COLUMN export_intnational_double DOUBLE NOT NULL AFTER export_international;
+UPDATE waste_projection_model_actuals_20230721 SET recycled_double=CAST(recycled AS DOUBLE);
