@@ -87,3 +87,14 @@ export_international,
 disposal,
 recovery_rate
 
+
+Command to add missing left double-quotes
+(eg.  'Asphalt,"Commerical'  becomes 'Asphalt","Commercial')
+:%s/\([^"]\),"/\1","/gc
+
+Command to add missing right double-quotes:
+(eg.  'Asphalt",Commerical'  becomes 'Asphalt","Commercial')
+:%s/",\([^"]\)/","\1/gc
+
+
+
